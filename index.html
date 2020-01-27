@@ -44,7 +44,22 @@
 			font-style:normal;
 			font-weight:normal;
 		}
-
+		/* Always set the map height explicitly to define the size of the div
+		* element that contains the map. */
+		.map-responsive{
+			overflow:hidden;
+			padding-bottom:56.25%;
+			position:relative;
+			height:0;
+		}
+		.map-responsive iframe{
+			left:0;
+			top:0;
+			height:100%;
+			width:100%;
+			position:absolute;
+		}
+		.gm-iv-address{ display: none !important }
 	</style>
 
 	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">-->
@@ -100,7 +115,7 @@
 			<div class="col-md-8 col-md-offset-2 animate-box">
 				<div class="col-md-12 text-center section-heading svg-sm colored">
 					<p style="font-size: 32px; margin-bottom: 20px; color: rgba(0, 0, 0, 0.7)">
-						최용범 ❤️ 남궁윤비
+						최용범 <img src="./images/flaticon/svg/HeartOutline.svg" style="margin-bottom: 0;" alt="Breaking Borders Logo" height="30" width="30"> 남궁윤비
 					</p>
 					<p style="font-size: 16px; margin-bottom: 0px;">
 						평생을 같이하고 싶은 사람을 만났습니다.<br/>
@@ -140,32 +155,39 @@
 							<span style="font-size:20px; font-family: 'Jeju Myeongjo', serif; letter-spacing:1px; padding:0px;">일요일 오후 2시 20분</span>
 						</div>
 
+						<div id="map" style="height:360px; margin-top: 20px; margin-bottom: 20px;"></div>
 						<p style="text-align: left;margin-top: 20px; font-size: 15px;">
-							<span style="color: rgba(0,0,0,0.7)">장소</span><br/>
+							<span style="color: rgba(0,0,0,0.7);font-weight: bold;">장소</span><br/>
 							서울특별시 광진구 강변역로 50 (동서울 터미널) 4층 아토홀 (지번 : 구의동 546-1)<br>
 							TEL. 02-453-0102
 						</p>
 						<p style="text-align: left; font-size: 15px;">
-							<span style="color: rgba(0,0,0,0.7)">지하철</span><br/>
+							<span style="color: rgba(0,0,0,0.7);font-weight: bold;">지하철</span><br/>
 							[ 2호선 강변역 ] 동서울터미널 4번출구
 						</p>
 						<p style="text-align: left; font-size: 15px;">
-							<span style="color: rgba(0,0,0,0.7)">버스</span><br/>
+							<span style="color: rgba(0,0,0,0.7);font-weight: bold;">버스</span><br/>
 							[ 서울버스 ] 2224, 3212, 3214, 강동1, 광진1, 광진3, 광진4, 광진5<br>
 							[ 경기버스 ] 1, 1-1, 1-2, 9, 9-1, 13, 13-2, 15, 91, 92, 93, 95, 96, 112, 112-1, 2000-1, 2000-3, 2000-4, 11, 100, 1113, 1113-1, 1113-2, 1117, 1650, 5600, 5700, 6705
 						</p>
 						<p style="text-align: left; font-size: 15px;">
-							<span style="color: rgba(0,0,0,0.7)">자가용</span><br/>
-							[ 네비게이션 ] 다온플라츠컨벤션 주차장 검색
+							<span style="color: rgba(0,0,0,0.7);font-weight: bold;">자가용</span><br/>
+							다온플라츠컨벤션 혹은 동서울 터미널 검색
 						</p>
-						<p style="text-align: left; font-size: 15px;">
-							<span style="color: rgba(0,0,0,0.7)">주차장</span><br/>
-							<ul style="text-align: left; font-size: 15px;">
-								<li>지하 3층 주차장 이용시 계단으로 지하 1층까지 이동후 엘레베이터로 4층 이동</li>
-								<li>지상주차장 이용가능</li>
-							</ul>
+						<p style="text-align: left; font-size: 15px; margin-bottom: 5px;">
+							<i class="fas fa-info-circle"></i><span style="color: rgba(0,0,0,0.7);font-weight: bold;">지하 3층 주차장</span><br/>
+							계단으로 지하 1층까지 이동후 엘레베이터로 4층 이동
 						</p>
-						<div id="map" style="height:360px; margin-top: 20px; margin-bottom: 20px;"></div>
+						<div class="map-responsive">
+							<iframe src="https://www.google.com/maps/embed?pb=!4v1580134155160!6m8!1m7!!2m2!1d37.53487011589274!2d127.0932640302316!3f89.14743177051811!4f14.103047538268584!5f1.0760092829912344" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="">
+							</iframe>
+						</div>
+						<p style="text-align: left; font-size: 15px; margin-top:20px;margin-bottom: 5px;">
+							<i class="fas fa-info-circle"></i><span style="color: rgba(0,0,0,0.7);font-weight: bold;">지상 주차장</span><br/>
+						</p>
+						<div class="map-responsive">
+							<iframe src="https://www.google.com/maps/embed?pb=!4v1580145433995!6m8!1m7!1sc-f2ILd9NB2sZXsprNYT6Q!2m2!1d37.5338214145564!2d127.0949511040617!3f328.9034970703702!4f5.729173962520633!5f0.8160880603543652" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -275,47 +297,78 @@
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js?v=20180722"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a06f622d8dc390bbd498e5963f064444"></script>
+
+<script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
 <script>
-	var container = document.getElementById('map');
-	var options = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667),
-		level: 3
+	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new kakao.maps.LatLng(37.534735, 127.094116), //지도의 중심좌표.
+		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
 
-	var map = new kakao.maps.Map(container, options);
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-  //map.setDraggable(false);
+		// 마커를 표시할 위치와 title 객체 배열입니다 
+	var positions = [
+			{
+					title: '다온플라츠', 
+					latlng: new kakao.maps.LatLng(37.534735, 127.094116),
+					content: `<div class ="label label-default" style="padding-bottom:0;position: absolute; top: 0; left:10px"><span class="left"></span><span class="center">다온플라츠</span><span class="right"></span></div>`
+			},
+			{
+					title: '지하주차장 입구', 
+					latlng: new kakao.maps.LatLng(37.534865, 127.093504),
+					content: `<div class ="label label-default" style="padding-bottom:0;position: absolute; top: -50px; left:10px"><span class="left"></span><span class="center">지하주차장 입구</span><span class="right"></span></div>`
+			},
+			{
+					title: '지상주차장 입구', 
+					latlng: new kakao.maps.LatLng(37.533933,127.0948947),
+					content: `<div class ="label label-default" style="padding-bottom:0;position: absolute; top: 0px; left:10px"><span class="left"></span><span class="center">지상주차장 입구</span><span class="right"></span></div>`
+			}
+	];
 
-  var positions = [
-    {
-      title: '다온플라츠 컨벤션',
-      latlng: new daum.maps.LatLng(520798, 1120955),
-      link: "https://map.kakao.com/?urlX=520798&urlY=1120955&urlLevel=3&itemId=1906917975&q=%EB%8B%A4%EC%98%A8%ED%94%8C%EB%9D%BC%EC%B8%A0%EC%BB%A8%EB%B2%A4%EC%85%98&srcid=1906917975&map_type=TYPE_MAP"
-    },
+	// 마커 이미지의 이미지 주소입니다
+	var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+			
+	for (var i = 0; i < positions.length; i ++) {
+			
+			// 마커 이미지의 이미지 크기 입니다
+			var imageSize = new kakao.maps.Size(24, 35); 
+			
+			// 마커 이미지를 생성합니다    
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+					map: map, // 마커를 표시할 지도
+					position: positions[i].latlng, // 마커를 표시할 위치
+					title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+					image : markerImage // 마커 이미지 
+			});
 
-  ];
+			// 커스텀 오버레이를 생성합니다
+			var customOverlay = new kakao.maps.CustomOverlay({
+			position: positions[i].latlng,
+			content: positions[i].content   
+			});
+			customOverlay.setMap(map);
+	}
 
-  for (var i = 0; i < positions.length; i ++) {
+	// // 커스텀 오버레이에 표시할 내용입니다     
+	// // HTML 문자열 또는 Dom Element 입니다 
+	// var content = '<div class ="label label-success"><span class="left"></span><span class="center">카카오!</span><span class="right"></span></div>';
 
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-      position: positions[i].latlng
-    });
+	// // 커스텀 오버레이가 표시될 위치입니다 
+	// var position = new kakao.maps.LatLng(37.534735, 127.094116);  
 
-    marker.setMap(map);
+	// // 커스텀 오버레이를 생성합니다
+	// var customOverlay = new kakao.maps.CustomOverlay({
+	// 		position: position,
+	// 		content: content   
+	// });
 
-    var iwContent = '<a style="padding: 5px; font:14px/2 sans-serif; text-decoration: underline;" target="_blank" href="' + positions[i].link +'"><strong>' + positions[i].title  + '</strong></a>',
-        iwPosition = positions[i].latlng
-
-
-    var infowindow = new daum.maps.InfoWindow({
-      position: iwPosition, // 마커를 표시할 위치
-      content : iwContent, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-    });
-
-    infowindow.open(map, marker);
-
-  }
+	// // 커스텀 오버레이를 지도에 표시합니다
+  // customOverlay.setMap(map);
 
 </script>
 </body>

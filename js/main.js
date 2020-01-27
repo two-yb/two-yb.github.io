@@ -300,5 +300,9 @@
 		bgVideo();
 	});
 
-
 }());
+
+$( document ).ready(function() {
+	var temp = document.querySelectorAll('.gm-iv-address');
+	console.log(temp)
+});
