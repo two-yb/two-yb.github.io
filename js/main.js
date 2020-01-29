@@ -251,8 +251,13 @@
 	};
 
 
-	// Set the date we're counting down to
-		var countDownDate = new Date("2020-02-23 14:20:00").getTime();
+		// Set the date we're counting down to
+		var t = "2020-02-23 14:20:00".split(/[- :]/);
+
+		// Apply each element to the Date function
+		var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+		var actiondate = new Date(d);
+		var countDownDate = new Date(actiondate).getTime();
 
 		// Update the count down every 1 second
 		var x = setInterval(function() {
